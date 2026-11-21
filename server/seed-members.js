@@ -1,6 +1,5 @@
-// Members transcribed from the handwritten "የመዘምራን መቆጣጠሪያ ቅጽ".
-// ወ = ወንድ (male) → 'M', ሴ = ሴት (female) → 'F'.
-module.exports = [
+// Members transcribed from the handwritten "የመዘምራን መቆጣጠሪያ ቅጽ". ወ = ወንድ (male) → 'M', ሴ = ሴት (female) → 'F'.
+export default [
   'ተስፋየ ሲሳይ',
   'አላዛር አለማየሁ',
   'ባንታየሁ አንዳርጌ',
