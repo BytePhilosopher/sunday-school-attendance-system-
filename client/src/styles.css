@@ -248,6 +248,8 @@ table.table { width: 100%; border-collapse: collapse; }
 
 .skeleton { border-radius: 10px; background: linear-gradient(90deg, #efe8da 0%, #f8f3ea 50%, #efe8da 100%); background-size: 200% 100%; animation: shimmer 1.3s infinite; }
 @keyframes shimmer { to { background-position: -200% 0; } }
+.spin { animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
 
 /* =========================================================================
    Dashboard

@@ -3,9 +3,18 @@ import { createPortal } from 'react-dom';
 import { AlertTriangle, CheckCircle2, AlertCircle, X } from 'lucide-react';
 
 // ---------- Modal ----------
+const openModals = []; // stack, so Escape only closes the top-most modal
+
 export function Modal({ title, subtitle, onClose, children, footer, size }) {
+  const idRef = useRef(Symbol('modal'));
   useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose();
+    const id = idRef.current;
+    openModals.push(id);
+    return () => openModals.splice(openModals.indexOf(id), 1);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => e.key === 'Escape' && openModals.at(-1) === idRef.current && onClose();
     document.addEventListener('keydown', onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
