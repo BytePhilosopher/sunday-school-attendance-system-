@@ -111,7 +111,7 @@ export default function Members() {
                       )}
                     </td>
                     <td>
-                      <Meter pct={attendancePct(m.present, m.late, m.sessions)} />
+                      <Meter pct={attendancePct(m.present, m.late, m.sessions, m.excused)} />
                       <div className="person-sub num">
                         {m.present + m.late} / {m.sessions} ክትትሎች
                       </div>

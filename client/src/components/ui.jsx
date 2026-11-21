@@ -78,7 +78,7 @@ export function Ring({ value, total, color = 'var(--present)', size = 76 }) {
   const frac = total ? value / total : 0;
   return (
     <div className="ring" style={{ width: size, height: size }}>
-      <svg width={size} height={size}>
+      <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--line)" strokeWidth="8" />
         <circle
           cx={size / 2}

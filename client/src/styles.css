@@ -235,7 +235,7 @@ table.table { width: 100%; border-collapse: collapse; }
 
 .meter { display: flex; align-items: center; gap: 10px; min-width: 150px; }
 .meter-track { flex: 1; height: 7px; border-radius: 99px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; max-width: 110px; }
-.meter-fill { height: 100%; border-radius: 99px; }
+.meter-fill { display: block; height: 100%; border-radius: 99px; transition: width 0.4s ease; }
 .tone-good { color: var(--present); } .fill-good { background: var(--present); }
 .tone-mid { color: var(--late); } .fill-mid { background: var(--late); }
 .tone-low { color: var(--absent); } .fill-low { background: var(--absent); }
@@ -353,10 +353,10 @@ table.table { width: 100%; border-collapse: collapse; }
 .roll li.st-late::before { background: var(--late); }
 .roll li.st-excused::before { background: var(--excused); }
 .roll .idx { color: var(--muted); font-size: 13px; text-align: right; font-variant-numeric: tabular-nums; }
-.roll .avatar.st-present { background: var(--present-soft); color: var(--present); }
-.roll .avatar.st-absent { background: var(--absent-soft); color: var(--absent); }
-.roll .avatar.st-late { background: var(--late-soft); color: var(--late); }
-.roll .avatar.st-excused { background: var(--excused-soft); color: var(--excused); }
+.avatar.st-present { background: var(--present-soft); color: var(--present); }
+.avatar.st-absent { background: var(--absent-soft); color: var(--absent); }
+.avatar.st-late { background: var(--late-soft); color: var(--late); }
+.avatar.st-excused { background: var(--excused-soft); color: var(--excused); }
 
 /* Ethiopian date picker */
 .picker-pop {
@@ -500,12 +500,25 @@ table.sheet { border-collapse: separate; border-spacing: 0; font-size: 13px; wid
   .bottom-nav a { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 6px 2px; border-radius: 12px; color: var(--muted); font-size: 11.5px; font-weight: 600; }
   .bottom-nav a.active { color: var(--brand); background: var(--brand-soft); }
 
+  .page-head { margin-bottom: 16px; gap: 12px; }
   .page-head h1 { font-size: 24px; }
+  .page-head p { font-size: 13.5px; }
+  .page-actions { width: 100%; flex-wrap: nowrap; }
+  .page-actions .btn { flex: 1; height: 38px; padding: 0 10px; font-size: 13px; }
   .hero { padding: 24px 22px 30px; border-radius: 20px; }
   .hero-date { font-size: 22px; }
   .hero-watermark { width: 200px; height: 200px; right: -60px; }
-  .day-card { padding: 18px; }
-  .day-title { font-size: 20px; }
+  .day-card { padding: 16px; gap: 14px; }
+  .day-nav { width: 100%; gap: 10px; }
+  .day-nav > div { flex: 1; min-width: 0; }
+  .day-title { font-size: 18px; }
+  .day-progress { width: 100%; padding-top: 12px; border-top: 1px solid var(--line); }
+  .day-progress .ring { width: 56px !important; height: 56px !important; }
+  .day-progress .ring svg { width: 56px; height: 56px; }
+  .day-progress .ring-label { font-size: 13px; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; margin: 0 -16px 12px; padding: 0 16px 2px; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .chip { flex-shrink: 0; }
   .form-grid { grid-template-columns: 1fr; }
   .hide-sm { display: none !important; }
 

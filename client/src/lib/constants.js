@@ -13,8 +13,9 @@ export const STATUS = {
 export const GENDER = { M: 'ወ', F: 'ሴ' };
 export const GENDER_LONG = { M: 'ወንድ', F: 'ሴት' };
 
-export const attendancePct = (present = 0, late = 0, sessions = 0) =>
-  sessions ? Math.round(((present + late) / sessions) * 100) : null;
+// Excused (በፈቃድ) days don't count against the member.
+export const attendancePct = (present = 0, late = 0, sessions = 0, excused = 0) =>
+  sessions - excused > 0 ? Math.round(((present + late) / (sessions - excused)) * 100) : null;
 
 export const pctTone = (p) => (p === null ? 'muted' : p >= 75 ? 'good' : p >= 50 ? 'mid' : 'low');
 

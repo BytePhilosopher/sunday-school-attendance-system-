@@ -40,8 +40,9 @@ export default function MonthlySheet() {
         const marks = allDates.map((d) => byKey.get(`${m.id}|${d}`));
         const present = marks.filter((s) => s === 'present').length;
         const late = marks.filter((s) => s === 'late').length;
+        const excused = marks.filter((s) => s === 'excused').length;
         const sessions = marks.filter(Boolean).length;
-        return { m, marks, attended: present + late, sessions, pct: attendancePct(present, late, sessions) };
+        return { m, marks, attended: present + late, sessions, pct: attendancePct(present, late, sessions, excused) };
       });
     const perDate = allDates.map((_, i) => rows.filter((r) => r.marks[i] === 'present' || r.marks[i] === 'late').length);
     return { cols, allDates, rows, perDate, groups };
@@ -238,7 +239,7 @@ export default function MonthlySheet() {
                   {STATUS[s].label}
                 </span>
               ))}
-              <span>ተገኝነት = (ተገኝ + አርፍዷል) ÷ የተያዙ ክትትሎች</span>
+              <span>ተገኝነት = (ተገኝ + አርፍዷል) ÷ (ክትትሎች − በፈቃድ)</span>
             </div>
           </>
         )}
